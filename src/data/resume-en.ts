@@ -47,7 +47,7 @@ export const resumeEN: Resume = {
             company: "IWT Solution",
             role: "Programmer",
             employmentType: "Full-time",
-            period: "Sep 2017 - June 2019",
+            period: "Sep 2017 - Jun 2019",
             location: "Hong Kong",
             highlights: [
                 "Designed and implemented RESTful API services using Java and Node.js to integrate with facial recognition algorithms, enabling secure enrollment of validated face images as templates with critical metadata. The system facilitated secure access and extracted facial characteristics for business analytics, enhancing operational insights and system security. The solution was processing over 10,000 face verifications daily",

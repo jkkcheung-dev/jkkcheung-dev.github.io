@@ -8,6 +8,6 @@ export const theme = createTheme({
         },
     },
     typography: {
-        fontFamily: '"Roboto", "Noto Sans JP", sans-serif',
+        fontFamily: '"Consolas", "Noto Sans JP", sans-serif',
     },
 });

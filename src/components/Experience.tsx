@@ -1,7 +1,7 @@
 // Experience.tsx
 
-import { Box, Typography, Card, CardContent, Chip, Stack, useTheme, useMediaQuery, Paper } from '@mui/material';
-import { LocationOn, DateRange } from '@mui/icons-material';
+import { Box, Typography, Chip, Stack, useTheme, useMediaQuery, Paper } from '@mui/material';
+import { LocationOn } from '@mui/icons-material';
 import {
     Timeline,
     TimelineItem,
@@ -39,36 +39,34 @@ export const Experience = ({ experiences }: ExperienceProps) => {
                                 m: 'auto 0',
                                 py: '10px',
                                 px: 1,
-                                maxWidth: '170px',  // Limit maximum width
+                                maxWidth: '190px',  // Limit maximum width
                                 ...(isMobile && { display: 'none' })
                             }}
                         >
                             <Stack
-                                direction="column"
-                                spacing={1}
-                                sx={{ mt: 1, mb: 2 }}
+                                direction="column" spacing={1} alignItems="flex-end"
                             >
-
                                 <Typography
                                     variant="body2"
                                     color="text.secondary"
-                                    sx={{ display: 'flex', alignSelf: 'center', gap: 0.5, fontSize: '1rem' }}
+                                    sx={{ display: 'flex', alignItems: 'center', gap: 0.5, fontSize: '1rem' }}
                                 >
                                     {/* <DateRange fontSize="small" /> */}
                                     {exp.period}
                                 </Typography>
 
-                                <Chip
-                                    label={exp.employmentType}
-                                    size="small"
-                                    variant="outlined"
-                                    sx={{ alignSelf: 'flex-start' }}
-                                />
+                                <Typography
+                                    variant="body2"
+                                    color="text.secondary"
+                                    sx={{ display: 'flex', alignItems: 'center', gap: 0.5, fontSize: '1rem' }}
+                                >
+                                    {exp.employmentType}
+                                </Typography>
 
                                 <Typography
                                     variant="body2"
                                     color="text.secondary"
-                                    sx={{ display: 'flex', alignItems: 'center', gap: 0.5 }}
+                                    sx={{ display: 'flex', alignItems: 'center', gap: 0.5, fontSize: '0.9rem' }}
                                 >
                                     <LocationOn fontSize="small" />
                                     {exp.location}
@@ -102,14 +100,14 @@ export const Experience = ({ experiences }: ExperienceProps) => {
                                     transition: 'all 0.3s ease-in-out',
                                     '&:hover': {
                                         elevation: 6,
-                                        transform: 'translateY(-4px)',
-                                        boxShadow: theme.shadows[8],
+                                        transform: 'translateY(-5px)',
+                                        boxShadow: theme.shadows[15],
                                     },
                                 }}
                             >
                                 {/* Role Title */}
                                 <Typography
-                                    variant="h6"
+                                    variant="h5"
                                     component="h3"
                                     fontWeight={600}
                                     gutterBottom
@@ -129,10 +127,8 @@ export const Experience = ({ experiences }: ExperienceProps) => {
 
                                 {/* Always render but hide when above md screen size*/}
                                 <Stack
-                                    direction="column"
-                                    spacing={1}
+                                    direction="row" spacing={1}
                                     sx={{
-                                        mt: 1, mb: 2,
                                         ...(!isMobile && { display: 'none' })
                                     }}
                                 >
@@ -140,23 +136,24 @@ export const Experience = ({ experiences }: ExperienceProps) => {
                                     <Typography
                                         variant="body2"
                                         color="text.secondary"
-                                        sx={{ display: 'flex', alignItems: 'center', gap: 0.5 }}
+                                        sx={{ display: 'flex', alignItems: 'center', gap: 0.5, fontSize: '0.875rem' }}
                                     >
                                         {/* <DateRange fontSize="small" /> */}
-                                        {exp.period}
+                                        {exp.period} |
                                     </Typography>
-
-                                    <Chip
-                                        label={exp.employmentType}
-                                        size="small"
-                                        variant="outlined"
-                                        sx={{ alignSelf: 'flex-start' }}
-                                    />
 
                                     <Typography
                                         variant="body2"
                                         color="text.secondary"
-                                        sx={{ display: 'flex', alignItems: 'center', gap: 0.5 }}
+                                        sx={{ display: 'flex', alignItems: 'center', gap: 0.5, fontSize: '0.875rem' }}
+                                    >
+                                        {exp.employmentType} |
+                                    </Typography>
+
+                                    <Typography
+                                        variant="body2"
+                                        color="text.secondary"
+                                        sx={{ display: 'flex', alignItems: 'center', gap: 0.5, fontSize: '0.8rem' }}
                                     >
                                         <LocationOn fontSize="small" />
                                         {exp.location}
@@ -179,6 +176,7 @@ export const Experience = ({ experiences }: ExperienceProps) => {
                                                         display: 'block',
                                                         whiteSpace: 'normal',
                                                         textAlign: 'left',
+                                                        fontSize: '0.95rem',
                                                     },
                                                 }}
                                             />

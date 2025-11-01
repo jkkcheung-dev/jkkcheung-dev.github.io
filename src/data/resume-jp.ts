@@ -47,7 +47,7 @@ export const resumeJP: Resume = {
             company: "IWT Solution",
             role: "Programmer",
             employmentType: "正社員",
-            period: "Sep 2017 - June 2019",
+            period: "Sep 2017 - Jun 2019",
             location: "香港",
             highlights: [
                 "JavaおよびNode.jsを使用し、顔認証アルゴリズムと連携するRESTful APIサービスの設計・実装に携わりました。顔画像をメタデータと共に安全に登録するテンプレート機能を開発し、セキュアなアクセスとビジネス分析のための顔特徴データ抽出を実現しました。このシステムは1日に1万件以上の顔認証を処理し、オペレーションの高度化とセキュリティ強化に貢献しました",
