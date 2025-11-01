@@ -19,7 +19,7 @@ export const resumeEN: Resume = {
             company: "Government Public Dental Service",
             role: "Analyst Programmer",
             employmentType: "Secondment Contract",
-            period: "2021 - Present",
+            period: "May 2021 - Present",
             location: "Hong Kong",
             highlights: [
                 "Developed and managed 3 out of 11 modules of critical patient record management system, supporting various patient records management and reports generation of about 6000 public dental service staff. Built the frontend using ReactJS and distributed backend with Spring boot Java, leveraging Redis caching and AWS services to enhance user experience",
@@ -33,7 +33,7 @@ export const resumeEN: Resume = {
             company: "Orient Overseas Container Line Limited",
             role: "Assistant Technical Analyst",
             employmentType: "Full-time",
-            period: "2019 - 2020",
+            period: "Jun 2019 - Oct 2020",
             location: "Hong Kong",
             highlights: [
                 "Contributed to migration of in-house shipping documents mapping system from legacy Tibco software to distributed Spring Boot services, reducing teams coordination overhead and improving components independent scalability",
@@ -47,7 +47,7 @@ export const resumeEN: Resume = {
             company: "IWT Solution",
             role: "Programmer",
             employmentType: "Full-time",
-            period: "2017 - 2019",
+            period: "Sep 2017 - June 2019",
             location: "Hong Kong",
             highlights: [
                 "Designed and implemented RESTful API services using Java and Node.js to integrate with facial recognition algorithms, enabling secure enrollment of validated face images as templates with critical metadata. The system facilitated secure access and extracted facial characteristics for business analytics, enhancing operational insights and system security. The solution was processing over 10,000 face verifications daily",

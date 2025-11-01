@@ -19,7 +19,7 @@ export const resumeJP: Resume = {
             company: "政府公共の歯科サービス",
             role: "Analyst Programmer",
             employmentType: "派遣社員",
-            period: "2021 - 現在",
+            period: "May 2021 - 現在",
             location: "香港",
             highlights: [
                 "約6000名の公的歯科サービス職員が利用する患者記録管理システム（全11モジュール）のうち、3つのモジュール開発に従事しました。主にReactJSによるフロントエンド開発、及びSpring Boot (Java)を用いたバックエンド開発を担当し、RedisやAWSのサービス活用を通じて、ユーザーエクスペリエンスの向上に貢献しました",
@@ -33,7 +33,7 @@ export const resumeJP: Resume = {
             company: "Orient Overseas Container Line Limited",
             role: "Assistant Technical Analyst",
             employmentType: "正社員",
-            period: "2019 - 2020",
+            period: "Jun 2019 - Oct 2020",
             location: "香港",
             highlights: [
                 "社内船積み書類マッピングシステムのレガシーなTibcoソフトウェアから、Spring Bootによる分散サービスへの移行プロジェクトに参画しました。この移行により、チーム間の連携コストの削減や、コンポーネントの独立したスケーラビリティ向上に貢献しました",
@@ -47,7 +47,7 @@ export const resumeJP: Resume = {
             company: "IWT Solution",
             role: "Programmer",
             employmentType: "正社員",
-            period: "2017 - 2019",
+            period: "Sep 2017 - June 2019",
             location: "香港",
             highlights: [
                 "JavaおよびNode.jsを使用し、顔認証アルゴリズムと連携するRESTful APIサービスの設計・実装に携わりました。顔画像をメタデータと共に安全に登録するテンプレート機能を開発し、セキュアなアクセスとビジネス分析のための顔特徴データ抽出を実現しました。このシステムは1日に1万件以上の顔認証を処理し、オペレーションの高度化とセキュリティ強化に貢献しました",
