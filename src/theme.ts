@@ -1,8 +1,10 @@
 import { createTheme } from '@mui/material/styles';
 
-// check what properties are available by default: https://mui.com/material-ui/customization/default-theme/
-// To add custom properties to the MUI theme that are not included by default
-// e.g., adding a 'highlight' color to the background palette
+// check what MUI theme properties are available by default: https://mui.com/material-ui/customization/default-theme/
+
+// To extend MUI theme with your own properties that are not included by default
+// e.g., adding a 'exphighlight' color to the background palette, you need to use module augmentation
+// as shown below:
 declare module '@mui/material/styles' {
     interface TypeBackground {
         exphighlight: string;
@@ -13,15 +15,15 @@ export const theme = createTheme({
     palette: {
         mode: 'light',
         primary: {
-            main: '#b47e25ff',
+            main: '#b48334ff',
         },
         background: {
-            default: '#96b5b9ff',
-            paper: '#ffffffff',
-            exphighlight: '#ced5f7ff',
+            default: '#767b9aff',
+            paper: '#c6c9c6ff',
+            exphighlight: '#bcb19dff',
         },
     },
     typography: {
-        fontFamily: '"Consolas", "Noto Sans JP", sans-serif',
+        fontFamily: '"fkGrotesk", "Noto Sans JP", sans-serif',
     },
 });

@@ -36,7 +36,7 @@ export const Experience = ({ experiences }: ExperienceProps) => {
                         {/* Always render but hide below md screen size*/}
                         <TimelineOppositeContent
                             sx={{
-                                m: 'auto 0',
+                                m: '0',
                                 py: '10px',
                                 px: 1,
                                 maxWidth: '190px',  // Limit maximum width
@@ -76,7 +76,7 @@ export const Experience = ({ experiences }: ExperienceProps) => {
 
 
                         <TimelineSeparator>
-                            <TimelineConnector sx={{ bgcolor: 'primary.main', width: 3 }} />
+                            <TimelineConnector sx={{ bgcolor: 'primary.main', width: 3, flex: 0 }} />
                             <TimelineDot
                                 variant="outlined"
                                 sx={{
