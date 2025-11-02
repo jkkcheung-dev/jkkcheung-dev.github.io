@@ -1,7 +1,7 @@
 // Certifications.tsx (Compact Version)
 
 import { Box, Typography, Card, CardContent, Link, List, ListItem, ListItemText } from '@mui/material';
-import { Verified, OpenInNew } from '@mui/icons-material';
+import { OpenInNew } from '@mui/icons-material';
 import type { Resume } from '../types';
 
 type CertificationsProps = {
@@ -21,7 +21,6 @@ export const Certifications = ({ certifications }: CertificationsProps) => {
                 gutterBottom
                 sx={{ display: 'flex', alignItems: 'center', gap: 1 }}
             >
-                <Verified />
                 Certifications
             </Typography>
 

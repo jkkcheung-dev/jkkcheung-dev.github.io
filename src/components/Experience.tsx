@@ -1,6 +1,6 @@
 // Experience.tsx
 
-import { Box, Typography, Chip, Stack, useTheme, useMediaQuery, Paper } from '@mui/material';
+import { Box, Typography, Stack, useTheme, useMediaQuery, Paper } from '@mui/material';
 import { LocationOn } from '@mui/icons-material';
 import {
     Timeline,
@@ -103,6 +103,7 @@ export const Experience = ({ experiences }: ExperienceProps) => {
                                         transform: 'translateY(-5px)',
                                         boxShadow: theme.shadows[15],
                                     },
+                                    borderRadius: 5,
                                 }}
                             >
                                 {/* Role Title */}
@@ -161,25 +162,22 @@ export const Experience = ({ experiences }: ExperienceProps) => {
                                 </Stack>
 
                                 {/* Highlights/Responsibilities */}
-                                <Box sx={{ mt: 2 }}>
+                                <Box sx={{ mt: 2, }}>
                                     <Stack spacing={1}>
                                         {exp.highlights.map((highlight, i) => (
-                                            <Chip
+                                            <Box
                                                 key={i}
-                                                label={highlight}
-                                                size="small"
-                                                variant="outlined"
                                                 sx={{
-                                                    height: 'auto',
+                                                    px: 1.5,
                                                     py: 1,
-                                                    '& .MuiChip-label': {
-                                                        display: 'block',
-                                                        whiteSpace: 'normal',
-                                                        textAlign: 'left',
-                                                        fontSize: '0.95rem',
-                                                    },
+                                                    bgcolor: i % 2 === 0 ? 'background.exphighlight' : 'transparent',
+                                                    borderRadius: 3,
                                                 }}
-                                            />
+                                            >
+                                                <Typography variant="body2" sx={{ fontSize: '0.95rem', lineHeight: 1.4 }}>
+                                                    {highlight}
+                                                </Typography>
+                                            </Box>
                                         ))}
                                     </Stack>
                                 </Box>

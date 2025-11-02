@@ -16,7 +16,7 @@ export const resumeJP: Resume = {
     },
     experiences: [
         {
-            company: "政府公共の歯科サービス",
+            company: "政府歯科サービス",
             role: "Analyst Programmer",
             employmentType: "派遣社員",
             period: "May 2021 - 現在",

@@ -38,7 +38,7 @@ export const resumeEN: Resume = {
             highlights: [
                 "Contributed to migration of in-house shipping documents mapping system from legacy Tibco software to distributed Spring Boot services, reducing teams coordination overhead and improving components independent scalability",
                 "Built microservices with best practice patterns such as service discovery, circuit breaker and external config to replace components of internal legacy systems. Adopted CI/CD pipelines to achieve quick and safe deployment. System maintainability and performance is improved",
-                "Proposed adoption of standardized logging practices ( log framework & log format) to team members and log centralization for team troubleshooting efficiency, aiming for dropping a legacy solution with high overhead",
+                "Proposed adoption of standardized logging practices (log framework & log format) to team members and log centralization for team troubleshooting efficiency, aiming for dropping a legacy solution with high overhead",
                 "Set up ELK + Redis cluster infrastructure for log centralization from POC to on-prem production for more than 50 applications with over 90GB daily log size. Application reliability was greatly improved and time to handle production issues were drastically reduced by 60%, on average 120 mins per issue to  40 mins per issue",
                 "Configured Prometheus and Grafana for real-time container monitoring and alerting, supporting operational staff and increasing efficiency"
             ]

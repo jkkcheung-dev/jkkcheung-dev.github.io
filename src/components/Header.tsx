@@ -14,7 +14,7 @@ export const Header = ({ data }: HeaderProps) => {
     return (
         <Box sx={{ py: 4, textAlign: 'center' }}>
             <IconButton onClick={toggleLanguage} sx={{ position: 'absolute', top: 10, right: 10 }}>
-                <Language /> {language === 'en' ? 'JP' : 'EN'}
+                {language === 'en' ? 'JP' : 'EN'}
             </IconButton>
 
             <Typography variant="h3" fontWeight="bold">{data.name}</Typography>

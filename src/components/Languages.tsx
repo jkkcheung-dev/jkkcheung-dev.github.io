@@ -1,7 +1,6 @@
 // Languages.tsx
 
 import { Box, Typography, Card, CardContent, Chip, Stack } from '@mui/material';
-import { Language as LanguageIcon } from '@mui/icons-material';
 import type { Resume } from '../types';
 
 type LanguagesProps = {
@@ -25,7 +24,6 @@ const getProficiencyColor = (idx: number): "success" | "primary" | "secondary" =
 export const Languages = ({ languages }: LanguagesProps) => (
     <Box sx={{ my: 4 }}>
         <Typography variant="h5" fontWeight="bold" gutterBottom sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
-            <LanguageIcon />
             Languages
         </Typography>
 
