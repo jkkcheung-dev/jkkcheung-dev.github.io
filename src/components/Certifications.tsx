@@ -14,7 +14,7 @@ export const Certifications = ({ certifications }: CertificationsProps) => {
     }
 
     return (
-        <Box sx={{ my: 4 }}>
+        <Box sx={{ my: 3 }}>
             <Typography
                 variant="h5"
                 fontWeight="bold"
@@ -24,44 +24,40 @@ export const Certifications = ({ certifications }: CertificationsProps) => {
                 Certifications
             </Typography>
 
-            <Card sx={{ boxShadow: 2 }}>
-                <CardContent>
-                    <List disablePadding>
-                        {Object.entries(certifications).map(([name, url], idx, arr) => (
-                            <ListItem
-                                key={name}
-                                disablePadding
-                                sx={{
-                                    py: 0.8,
-                                    borderBottom: idx < arr.length - 1 ? 1 : 0,
-                                    borderColor: 'divider'
-                                }}
-                            >
-                                <ListItemText
-                                    primary={
-                                        <Link
-                                            href={url}
-                                            target="_blank"
-                                            rel="noopener noreferrer"
-                                            underline="hover"
-                                            sx={{
-                                                display: 'flex',
-                                                alignItems: 'center',
-                                                gap: 0.5,
-                                                fontWeight: 'medium'
-                                            }}
-                                        >
-                                            {name}
-                                            <OpenInNew fontSize="small" />
-                                        </Link>
-                                    }
-                                    secondary="Verified on Credly"
-                                />
-                            </ListItem>
-                        ))}
-                    </List>
-                </CardContent>
-            </Card>
+
+            <List disablePadding>
+                {Object.entries(certifications).map(([name, url], idx, arr) => (
+                    <ListItem
+                        key={name}
+                        disablePadding
+                        sx={{
+
+                        }}
+                    >
+                        <ListItemText
+                            primary={
+                                <Link
+                                    href={url}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    underline="hover"
+                                    sx={{
+                                        display: 'flex',
+                                        alignItems: 'center',
+                                        gap: 0.5,
+                                        fontWeight: 'medium'
+                                    }}
+                                >
+                                    {name}
+                                    <OpenInNew fontSize="small" />
+                                </Link>
+                            }
+                            secondary="Verified on Credly"
+                        />
+                    </ListItem>
+                ))}
+            </List>
+
         </Box>
     );
 };
