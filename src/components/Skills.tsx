@@ -14,35 +14,39 @@ export const Skills = ({ skills }: SkillsProps) => (
         </Typography>
 
         {Object.entries(skills).map(([category, items]) => (
-            <Card key={category} sx={{ mb: 1, boxShadow: 5 }}>
-                <CardContent>
-                    <Typography
-                        variant="subtitle1"
-                        fontWeight="bold"
-                        color="primary"
-                        gutterBottom
-                        sx={{ mb: 0 }}
-                    >
-                        {category}
-                    </Typography>
+            <Box key={category}>
+                <Typography
+                    variant="subtitle1"
+                    fontWeight="bold"
+                    color="primary.textColor1"
+                    gutterBottom
+                    sx={{ mb: 0.5 }}
+                >
+                    {category}
+                </Typography>
 
-                    <Stack
-                        direction="row"
-                        spacing={0.5}
-                        flexWrap="wrap"
-                        useFlexGap
-                    >
-                        {items.map((skill, idx) => (
-                            <Chip
-                                key={idx}
-                                label={skill}
-                                size="medium"
-                                sx={{ mb: 0 }}
-                            />
-                        ))}
-                    </Stack>
-                </CardContent>
-            </Card>
+                <Stack
+                    direction="row" spacing={1.5} flexWrap="wrap" useFlexGap
+                >
+                    {items.map((skill, idx) => (
+                        <Chip
+                            key={idx}
+                            label={skill}
+                            size="medium"
+                            sx={{
+                                // Customize the outline (border) color
+                                // borderColor: 'primary.textColor1',
+                                // Customize the background color inside the outline (only visible on hover/focus if no bgcolor is set)
+                                bgcolor: 'background.paper',
+                                // Customize the text color
+                                color: 'text.secondary',
+                                mb: 1,
+                            }}
+                        />
+                    ))}
+                </Stack>
+
+            </Box>
         ))}
     </Box>
 );

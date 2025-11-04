@@ -1,24 +1,10 @@
 // Languages.tsx
 
-import { Box, Typography, Card, CardContent, Chip, Stack } from '@mui/material';
+import { Box, Typography, Chip, Stack } from '@mui/material';
 import type { Resume } from '../types';
 
 type LanguagesProps = {
     languages: Resume['languages'];
-};
-
-// Color mapping for proficiency levels
-const getProficiencyColor = (idx: number): "success" | "primary" | "secondary" => {
-    switch (idx) {
-        case 0:
-            return "success";
-        case 1:
-            return "primary";
-        case 2:
-            return "secondary";
-        default:
-            return "secondary";
-    }
 };
 
 export const Languages = ({ languages }: LanguagesProps) => (
@@ -27,34 +13,40 @@ export const Languages = ({ languages }: LanguagesProps) => (
             Languages
         </Typography>
 
-        <Card sx={{ boxShadow: 2 }}>
-            <CardContent>
-                <Stack spacing={2}>
-                    {Object.entries(languages).map(([level, langs], levelIndex) => (
-                        <Box key={level}>
-                            <Typography
-                                variant="subtitle2"
-                                color="text.secondary"
-                                gutterBottom
-                                sx={{ mb: 1 }}
-                            >
-                                {level}
-                            </Typography>
+        {Object.entries(languages).map(([level, langs], levelIndex) => (
+            <Box key={level}>
+                <Typography
+                    fontWeight="bold"
+                    variant="subtitle1"
+                    color="primary.textColor1"
+                    gutterBottom
+                    sx={{ mb: 0.5 }}
+                >
+                    {level}
+                </Typography>
 
-                            <Stack direction="row" spacing={1} flexWrap="wrap" useFlexGap>
-                                {langs.map((lang, idx) => (
-                                    <Chip
-                                        key={idx}
-                                        label={lang}
-                                        color={getProficiencyColor(levelIndex)}
-                                        variant="outlined"
-                                    />
-                                ))}
-                            </Stack>
-                        </Box>
+                <Stack direction="row" spacing={1} flexWrap="wrap" useFlexGap>
+                    {langs.map((lang, idx) => (
+                        <Chip
+                            key={idx}
+                            label={lang}
+                            size="medium"
+                            // variant="outlined"
+                            sx={{
+                                // Customize the outline (border) color
+                                // borderColor: 'primary.textColor1',
+                                // Customize the background color inside the outline (only visible on hover/focus if no bgcolor is set)
+                                bgcolor: 'background.paper',
+                                // Customize the text color
+                                color: 'text.secondary',
+                                mb: 1,
+                            }}
+                        />
                     ))}
                 </Stack>
-            </CardContent>
-        </Card>
+            </Box>
+        ))}
+
+
     </Box>
 );

@@ -1,6 +1,6 @@
 // Certifications.tsx (Compact Version)
 
-import { Box, Typography, Card, CardContent, Link, List, ListItem, ListItemText } from '@mui/material';
+import { Box, Typography, Link, List, ListItem, ListItemText } from '@mui/material';
 import { OpenInNew } from '@mui/icons-material';
 import type { Resume } from '../types';
 
@@ -41,6 +41,7 @@ export const Certifications = ({ certifications }: CertificationsProps) => {
                                     target="_blank"
                                     rel="noopener noreferrer"
                                     underline="hover"
+                                    color="primary.textColor1"
                                     sx={{
                                         display: 'flex',
                                         alignItems: 'center',
