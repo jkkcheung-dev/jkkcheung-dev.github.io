@@ -1,5 +1,5 @@
 import { Box, Typography, IconButton, Stack } from '@mui/material';
-import { GitHub, LinkedIn, Email, Language, LocationOn } from '@mui/icons-material';
+import { GitHub, LinkedIn, Email, LocationOn } from '@mui/icons-material';
 import { useContext } from 'react';
 import { LanguageContext } from '@/App';
 import type { Resume } from '@/types';
@@ -17,13 +17,26 @@ export const Header = ({ data }: HeaderProps) => {
                 {language === 'en' ? 'JP' : 'EN'}
             </IconButton>
 
-            <Typography variant="h3" fontWeight="bold">{data.name}</Typography>
+            <Typography variant="h3" fontWeight="bold">{data.greetings}</Typography>
             <Typography variant="h6" color="text.secondary">
-                {data.title}
+                {data.role}
                 <LocationOn fontSize="small" sx={{ mx: 1 }} />
                 {data.location}
             </Typography>
-            <Typography variant="body1" color="text.secondary">{data.about}</Typography>
+            <Stack spacing={1.5} sx={{ mt: 3 }}>
+                {data.about.map((lines, index) => (
+                    <Typography
+                        key={index}
+                        variant="body1"
+                        color="text.secondary"
+                        sx={{
+                            lineHeight: 1.7,
+                        }}
+                    >
+                        {lines}
+                    </Typography>
+                ))}
+            </Stack>
             <Stack direction="row" spacing={1} justifyContent="center" sx={{ mt: 2 }}>
                 <IconButton href={data.github} target="_blank"><GitHub /></IconButton>
                 <IconButton href={data.linkedin} target="_blank"><LinkedIn /></IconButton>

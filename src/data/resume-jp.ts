@@ -1,13 +1,19 @@
 import type { Resume } from '@/types';
 
 export const resumeJP: Resume = {
-    name: "ジャック, チョウ カキット",
-    title: "ソフトウェアエンジニア | Software Engineer",
+    greetings: "はじめまして! ジャック です",
+    cantonName: "チョン カキット",
+    cantonDesc: "広東語での私の名前です",
+    role: "ソフトウェアエンジニア | Software Engineer",
     location: "香港",
     email: "jackcheungkk@gmail.com",
     github: "https://github.com/jkkcheung-dev",
     linkedin: "https://www.linkedin.com/in/jack-cheung-75a621149",
-    about: "ソフトウェアエンジニアとして、これまで主にJavaのSpringBootを使ったバックエンド開発や、React.jsでのフロントエンド開発に携わってきました。前職では、開発だけでなく、ELKとRedisを活用したログの管理システムや、PrometheusとGrafanaを使った自動監視システムを構築しました。これにより、障害対応にかかる時間を大幅に減らすことができました。現職でも、開発以外、AWSやCI/CD、Kubernetesなどを利用した開発・テスト環境の実装を担当しています。また、若手エンジニアのサポートも担当してきました。",
+    about: [
+        "ソフトウェアエンジニアとして、これまで主にJavaのSpringBootを使ったバックエンド開発や、React.jsでのフロントエンド開発に携わってきました",
+        "前職では、開発だけでなく、ELKとRedisを活用したログの管理システムや、PrometheusとGrafanaを使った自動監視システムを構築しました。これにより、障害対応にかかる時間を大幅に減らすことができました",
+        "現職でも、開発以外、AWSやCI/CD、Kubernetesなどを利用した開発・テスト環境の実装を担当しています。また、若手エンジニアのサポートも担当してきました"
+    ],
     education: {
         school: "香港大学",
         degree: "工程部 コンピュータサイエンス学系",

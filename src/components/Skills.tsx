@@ -1,6 +1,6 @@
 // Skills.tsx
 
-import { Box, Typography, Card, CardContent, Chip, Stack } from '@mui/material';
+import { Box, Typography, Chip, Stack } from '@mui/material';
 import type { Resume } from '@/types';
 
 type SkillsProps = {

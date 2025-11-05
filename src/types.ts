@@ -1,11 +1,13 @@
 export interface Resume {
-    name: string;
-    title: string;
+    greetings: string;
+    cantonName: string;
+    cantonDesc: string;
+    role: string;
     location: string;
     email: string;
     github: string;
     linkedin: string;
-    about: string;
+    about: string[];
     education: Education;
     experiences: Experience[];
     skills: Record<string, string[]>;

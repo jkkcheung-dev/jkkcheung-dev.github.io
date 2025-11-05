@@ -1,13 +1,19 @@
 import type { Resume } from '@/types';
 
 export const resumeEN: Resume = {
-    name: "Jack, Cheung Ka Kit",
-    title: "Software Engineer",
+    greetings: "Hi hi I'm Jack Cheung",
+    cantonName: "Cheung Ka Kit",
+    cantonDesc: "my name in Cantonese",
+    role: "Software Engineer",
     location: "HONG KONG",
     email: "jackcheungkk@gmail.com",
     github: "https://github.com/jkkcheung-dev",
     linkedin: "https://www.linkedin.com/in/jack-cheung-75a621149",
-    about: "web developer with 7+ years of experience in back-end, 4+ years of full-stack development, cloud infrastructure, and DevOps practices. Skilled in frameworks like React and Spring Boot as well as tools like AWS, Kubernetes, GitHub Action. Passionate about building scalable, reliable applications and seeking to contribute to innovative tech solutions.",
+    about: [
+        "Web developer with 7+ years of experience in back-end, 4+ years of full-stack development, cloud infrastructure, and DevOps practices",
+        "Skilled in frameworks like React and Spring Boot as well as tools like AWS, Kubernetes, GitHub Action",
+        "Passionate about building scalable, reliable applications and seeking to contribute to innovative tech solutions"
+    ],
     education: {
         school: "The University of Hong Kong",
         degree: "Bachelor of Engineering in Computer Science",
