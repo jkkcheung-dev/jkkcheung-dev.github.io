@@ -20,7 +20,7 @@ export const Header = ({ data }: HeaderProps) => {
             <Typography variant="h3" fontWeight="bold" color="primary.textColor1" sx={{ fontFamily: 'Indie Flower', "font-weight": 400, textAlign: 'left', }}>
                 {data.greetings}
             </Typography>
-            <Typography variant="h6" color="text.secondary" sx={{ mt: 2, textAlign: 'left', fontFamily: 'dynapuff', }}>
+            <Typography variant="h6" sx={{ mt: 2, textAlign: 'left', fontFamily: 'dynapuff', }}>
                 {data.role}
                 <LocationOn fontSize="small" sx={{ mx: 1 }} />
                 {data.location}
