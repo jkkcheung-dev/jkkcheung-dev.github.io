@@ -17,8 +17,10 @@ export const Header = ({ data }: HeaderProps) => {
                 {language === 'en' ? 'JP' : 'EN'}
             </IconButton>
 
-            <Typography variant="h3" fontWeight="bold">{data.greetings}</Typography>
-            <Typography variant="h6" color="text.secondary">
+            <Typography variant="h3" fontWeight="bold" color="primary.textColor1" sx={{ fontFamily: 'Indie Flower', "font-weight": 400, textAlign: 'left', }}>
+                {data.greetings}
+            </Typography>
+            <Typography variant="h6" color="text.secondary" sx={{ mt: 2, textAlign: 'left', fontFamily: 'dynapuff', }}>
                 {data.role}
                 <LocationOn fontSize="small" sx={{ mx: 1 }} />
                 {data.location}
@@ -28,9 +30,11 @@ export const Header = ({ data }: HeaderProps) => {
                     <Typography
                         key={index}
                         variant="body1"
-                        color="text.secondary"
+                        color="primary.chipBorderColor1"
                         sx={{
                             lineHeight: 1.7,
+                            textAlign: 'left',
+                            fontFamily: 'dynapuff', fontSize: '1.1em',
                         }}
                     >
                         {lines}
@@ -42,6 +46,6 @@ export const Header = ({ data }: HeaderProps) => {
                 <IconButton href={data.linkedin} target="_blank"><LinkedIn /></IconButton>
                 <IconButton href={`mailto:${data.email}`}><Email /></IconButton>
             </Stack>
-        </Box>
+        </Box >
     );
 };

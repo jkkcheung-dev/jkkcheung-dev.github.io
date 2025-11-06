@@ -12,12 +12,14 @@ declare module '@mui/material/styles' {
     interface PaletteColor {
         // Add your custom property to the PaletteColor interface (for reading the value)
         textColor1?: string;
+        textColor2?: string;
         chipBorderColor1?: string;
     }
 
     interface SimplePaletteColorOptions {
         // Add your custom property to the SimplePaletteColorOptions interface (as input when call createTheme function)
         textColor1?: string;
+        textColor2?: string;
         chipBorderColor1?: string;
     }
 }
@@ -28,10 +30,11 @@ export const theme = createTheme({
         primary: {
             main: '#b48334ff',
             textColor1: '#69607dff',
+            textColor2: '#bcb19dff',
             chipBorderColor1: '#d4cec1ff',
         },
         background: {
-            default: '#7495b0ff',
+            default: '#688fb9ff',
             paper: '#c6c9c6ff',
             exphighlight: '#bcb19dff',
         },

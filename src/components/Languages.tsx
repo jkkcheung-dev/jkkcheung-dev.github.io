@@ -36,7 +36,7 @@ export const Languages = ({ languages }: LanguagesProps) => (
                                 // Customize the outline (border) color
                                 // borderColor: 'primary.textColor1',
                                 // Customize the background color inside the outline (only visible on hover/focus if no bgcolor is set)
-                                bgcolor: 'background.paper',
+                                bgcolor: 'background.exphighlight',
                                 // Customize the text color
                                 color: 'text.secondary',
                                 mb: 1,
