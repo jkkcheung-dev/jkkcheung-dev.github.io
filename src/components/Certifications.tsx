@@ -19,6 +19,7 @@ export const Certifications = ({ certifications }: CertificationsProps) => {
                 variant="h5"
                 fontWeight="bold"
                 gutterBottom
+                color="primary.textColor2"
                 sx={{ display: 'flex', alignItems: 'center', gap: 1 }}
             >
                 Certifications

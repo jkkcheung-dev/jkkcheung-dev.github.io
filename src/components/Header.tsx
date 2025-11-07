@@ -17,7 +17,7 @@ export const Header = ({ data }: HeaderProps) => {
                 {language === 'en' ? 'JP' : 'EN'}
             </IconButton>
 
-            <Typography variant="h3" fontWeight="bold" color="primary.textColor1" sx={{ fontFamily: 'Indie Flower', "font-weight": 400, textAlign: 'left', }}>
+            <Typography variant="h3" fontWeight="bold" color="primary.textColor1" sx={{ fontFamily: 'Indie Flower', textAlign: 'left', }}>
                 {data.greetings}
             </Typography>
             <Typography variant="h6" sx={{ mt: 2, textAlign: 'left', fontFamily: 'dynapuff', }}>

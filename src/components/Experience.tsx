@@ -24,8 +24,13 @@ export const Experience = ({ experiences }: ExperienceProps) => {
         <Box sx={{ my: 4 }}>
             <Typography
                 variant="h5"
+                fontWeight="bold"
                 gutterBottom
-                sx={{ mb: 2, fontWeight: 600, textAlign: 'left' }}
+                color="primary.textColor2"
+                sx={{
+                    mb: 2, textAlign: 'left',
+                    // ...(isMobile && { display: 'none' })
+                }}
             >
                 Experience
             </Typography>
@@ -49,7 +54,7 @@ export const Experience = ({ experiences }: ExperienceProps) => {
                                 <Typography
                                     variant="body2"
                                     color="text.secondary"
-                                    sx={{ display: 'flex', alignItems: 'center', gap: 0.5, fontSize: '1rem' }}
+                                    sx={{ display: 'flex', alignItems: 'center', gap: 0.5, fontSize: '1em' }}
                                 >
                                     {/* <DateRange fontSize="small" /> */}
                                     {exp.period}
@@ -58,7 +63,7 @@ export const Experience = ({ experiences }: ExperienceProps) => {
                                 <Typography
                                     variant="body2"
                                     color="text.secondary"
-                                    sx={{ display: 'flex', alignItems: 'center', gap: 0.5, fontSize: '1rem' }}
+                                    sx={{ display: 'flex', alignItems: 'center', gap: 0.5, fontSize: '1em' }}
                                 >
                                     {exp.employmentType}
                                 </Typography>
@@ -66,7 +71,7 @@ export const Experience = ({ experiences }: ExperienceProps) => {
                                 <Typography
                                     variant="body2"
                                     color="text.secondary"
-                                    sx={{ display: 'flex', alignItems: 'center', gap: 0.5, fontSize: '0.9rem' }}
+                                    sx={{ display: 'flex', alignItems: 'center', gap: 0.5, fontSize: '0.9em' }}
                                 >
                                     <LocationOn fontSize="small" />
                                     {exp.location}

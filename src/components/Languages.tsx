@@ -9,7 +9,12 @@ type LanguagesProps = {
 
 export const Languages = ({ languages }: LanguagesProps) => (
     <Box sx={{ my: 4 }}>
-        <Typography variant="h5" fontWeight="bold" gutterBottom sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
+        <Typography
+            variant="h5"
+            fontWeight="bold"
+            gutterBottom
+            color="primary.textColor2"
+        >
             Languages
         </Typography>
 

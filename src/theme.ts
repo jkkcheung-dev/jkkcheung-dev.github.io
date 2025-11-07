@@ -30,13 +30,13 @@ export const theme = createTheme({
         primary: {
             main: '#b48334ff',
             textColor1: '#69607dff',
-            textColor2: '#bcb19dff',
+            textColor2: '#4c7a63ff',
             chipBorderColor1: '#d4cec1ff',
         },
         background: {
-            default: '#688fb9ff',
+            default: '#729dcbff',
             paper: '#c6c9c6ff',
-            exphighlight: '#bcb19dff',
+            exphighlight: '#bdae93ff',
         },
     },
     typography: {
