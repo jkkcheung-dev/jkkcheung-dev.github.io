@@ -10,8 +10,8 @@ export const resumeEN: Resume = {
     github: "https://github.com/jkkcheung-dev",
     linkedin: "https://www.linkedin.com/in/jack-cheung-75a621149",
     about: [
-        "Web developer with 7+ years of experience in back-end, 4+ years of full-stack development, cloud infrastructure, and DevOps practices",
-        "Skilled in frameworks like React and Spring Boot as well as tools like AWS, Kubernetes, GitHub Action",
+        "Web developer with 7+ years of back-end, 4+ years of full-stack development, cloud infra, and DevOps practices",
+        "Skilled in React and Spring Boot frameworks as well as tools like AWS, Kubernetes, GitHub Action",
         "Passionate about building scalable, reliable applications and seeking to contribute to innovative tech solutions"
     ],
     education: {
