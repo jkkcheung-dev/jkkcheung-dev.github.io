@@ -35,7 +35,7 @@ export const Experience = ({ experiences }: ExperienceProps) => {
                 Experience
             </Typography>
 
-            <Timeline position="right">
+            <Timeline position="right" sx={{ ...(isMobile && { px: 0 }) }}>
                 {experiences.map((exp, idx) => (
                     <TimelineItem key={idx}>
                         {/* Always render but hide below md screen size*/}
@@ -96,11 +96,11 @@ export const Experience = ({ experiences }: ExperienceProps) => {
                             <TimelineConnector sx={{ bgcolor: 'primary.main', width: 3 }} />
                         </TimelineSeparator>
 
-                        <TimelineContent sx={{ py: '12px', px: 2 }}>
+                        <TimelineContent sx={{ py: '12px', ...(isMobile ? { px: 1 } : { px: 2 }) }}>
                             <Paper
                                 elevation={2}
                                 sx={{
-                                    p: 3,
+                                    p: 2,
                                     backgroundColor: 'background.paper',
                                     transition: 'all 0.3s ease-in-out',
                                     '&:hover': {
