@@ -16,8 +16,7 @@ export const Certifications = ({ certifications }: CertificationsProps) => {
     return (
         <Box sx={{ my: 3 }}>
             <Typography
-                variant="h5"
-                fontWeight="bold"
+                variant="h4"
                 gutterBottom
                 color="primary.textColor2"
                 sx={{ display: 'flex', alignItems: 'center', gap: 1 }}

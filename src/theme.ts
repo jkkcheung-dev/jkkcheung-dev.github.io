@@ -30,7 +30,7 @@ export const theme = createTheme({
         primary: {
             main: '#b48334ff',
             textColor1: '#69607dff',
-            textColor2: '#4c7a63ff',
+            textColor2: '#487c63ff',
             chipBorderColor1: '#d4cec1ff',
         },
         background: {
@@ -41,5 +41,9 @@ export const theme = createTheme({
     },
     typography: {
         fontFamily: '"fkGrotesk", "Noto Sans JP", sans-serif',
+        h4: {
+            fontFamily: 'dynapuff',
+            fontSize: '1.7em',
+        },
     },
 });

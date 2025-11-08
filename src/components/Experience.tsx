@@ -23,8 +23,7 @@ export const Experience = ({ experiences }: ExperienceProps) => {
     return (
         <Box sx={{ my: 4 }}>
             <Typography
-                variant="h5"
-                fontWeight="bold"
+                variant="h4"
                 gutterBottom
                 color="primary.textColor2"
                 sx={{

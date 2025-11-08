@@ -9,7 +9,7 @@ type SkillsProps = {
 
 export const Skills = ({ skills }: SkillsProps) => (
     <Box sx={{ my: 4 }}>
-        <Typography variant="h5" fontWeight="bold" gutterBottom color="primary.textColor2">
+        <Typography variant="h4" gutterBottom color="primary.textColor2">
             Skills
         </Typography>
 
