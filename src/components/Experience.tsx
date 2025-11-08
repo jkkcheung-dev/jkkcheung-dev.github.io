@@ -144,25 +144,25 @@ export const Experience = ({ experiences }: ExperienceProps) => {
                                         sx={{ display: 'flex', alignItems: 'center', gap: 0.5, fontSize: '0.85rem' }}
                                     >
                                         {/* <DateRange fontSize="small" /> */}
-                                        {exp.period} | {exp.employmentType} | <LocationOn fontSize="small" />{exp.location}
+                                        {exp.period} | {exp.employmentType}
                                     </Typography>
-
-                                    {/* <Typography
+                                    {/* 
+                                    <Typography
                                         variant="body2"
                                         color="text.secondary"
                                         sx={{ display: 'flex', alignItems: 'center', gap: 0.5, fontSize: '0.875rem' }}
                                     >
                                         {exp.employmentType} |
-                                    </Typography>
+                                    </Typography> */}
 
                                     <Typography
                                         variant="body2"
                                         color="text.secondary"
-                                        sx={{ display: 'flex', alignItems: 'center', gap: 0.5, fontSize: '0.8rem' }}
+                                        sx={{ display: 'flex', alignItems: 'center', gap: 0.5, fontSize: '0.75rem' }}
                                     >
                                         <LocationOn fontSize="small" />
                                         {exp.location}
-                                    </Typography> */}
+                                    </Typography>
                                 </Stack>
 
                                 {/* Highlights/Responsibilities */}
