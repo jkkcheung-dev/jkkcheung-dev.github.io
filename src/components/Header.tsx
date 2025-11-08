@@ -12,15 +12,15 @@ export const Header = ({ data }: HeaderProps) => {
     const { language, toggleLanguage } = useContext(LanguageContext);
 
     return (
-        <Box sx={{ py: 4, textAlign: 'center' }}>
+        <Box sx={{ py: 4, }}>
             <IconButton onClick={toggleLanguage} sx={{ position: 'absolute', top: 10, right: 10 }}>
                 {language === 'en' ? 'JP' : 'EN'}
             </IconButton>
 
-            <Typography variant="h3" fontWeight="bold" color="primary.textColor1" sx={{ fontFamily: 'Indie Flower', textAlign: 'left', }}>
+            <Typography variant="h3" fontWeight="bold" color="primary.textColor1" sx={{ fontFamily: 'Indie Flower', }}>
                 {data.greetings}
             </Typography>
-            <Typography variant="h6" sx={{ mt: 2, textAlign: 'left', fontFamily: 'dynapuff', }}>
+            <Typography variant="h6" sx={{ mt: 2, fontFamily: 'dynapuff', }}>
                 {data.role}
                 <LocationOn fontSize="small" sx={{ mx: 1 }} />
                 {data.location}
@@ -33,7 +33,6 @@ export const Header = ({ data }: HeaderProps) => {
                         color="primary.chipBorderColor1"
                         sx={{
                             lineHeight: 1.7,
-                            textAlign: 'left',
                             fontFamily: 'dynapuff', fontSize: '1.1em',
                         }}
                     >
