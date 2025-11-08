@@ -30,7 +30,7 @@ export const Header = ({ data }: HeaderProps) => {
                     <Typography
                         key={index}
                         variant="body1"
-                        color="primary.chipBorderColor1"
+                        color="primary.textColor3"
                         sx={{
                             lineHeight: 1.7,
                             fontFamily: 'dynapuff', fontSize: '1.1em',

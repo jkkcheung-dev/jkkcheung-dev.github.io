@@ -19,7 +19,7 @@ export const Certifications = ({ certifications }: CertificationsProps) => {
                 variant="h4"
                 gutterBottom
                 color="primary.textColor2"
-                sx={{ display: 'flex', alignItems: 'center', gap: 1 }}
+                sx={{ display: 'flex', gap: 1 }}
             >
                 Certifications
             </Typography>
@@ -31,7 +31,10 @@ export const Certifications = ({ certifications }: CertificationsProps) => {
                         key={name}
                         disablePadding
                         sx={{
-
+                            alignItems: 'flex-start',
+                            width: 'fit-content',  // Only as wide as content
+                            borderBottom: idx < arr.length - 1 ? 1 : 0,
+                            borderColor: 'primary.textColor2',
                         }}
                     >
                         <ListItemText
