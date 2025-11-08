@@ -1,7 +1,7 @@
 import type { Resume } from '@/types';
 
 export const resumeJP: Resume = {
-    greetings: "はじめまして! ジャック です",
+    greetings: "お疲れ! ジャック です",
     cantonName: "チョン カキット",
     cantonDesc: "広東語での私の名前です",
     role: "ソフトウェアエンジニア",
