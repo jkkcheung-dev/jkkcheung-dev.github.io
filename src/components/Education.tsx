@@ -1,5 +1,4 @@
 import { Box, Typography, Stack } from '@mui/material';
-import { LocationOn } from '@mui/icons-material';
 import type { Education as TertiaryEducation } from '@/types';
 
 type EducationProps = {
@@ -32,12 +31,6 @@ export const Education = ({ education }: EducationProps) => {
                     color="primary.textColor3"
                 >
                     {education.school} - {education.period}
-                </Typography>
-                <Typography
-                    variant="body2"
-                    color="text.secondary"
-                >
-                    <LocationOn fontSize="small" sx={{ verticalAlign: 'middle' }} /> {education.location}
                 </Typography>
             </Stack>
         </Box>
