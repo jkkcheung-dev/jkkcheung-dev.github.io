@@ -10,7 +10,7 @@ type HeaderProps = {
 };
 
 export const Header = ({ data }: HeaderProps) => {
-    const { language, toggleLanguage } = useContext(LanguageContext);
+    const { language } = useContext(LanguageContext);
     return (
         <Box sx={{ py: 4, }}>
             <LanguageToggle />
