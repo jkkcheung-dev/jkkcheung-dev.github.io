@@ -2,20 +2,31 @@ import { Box, Typography, IconButton, Stack } from '@mui/material';
 import { GitHub, LinkedIn, Email, LocationOn } from '@mui/icons-material';
 import type { Resume } from '@/types';
 import { LanguageToggle } from './LanguageToggle';  // Add this import
+import { useContext } from 'react';
+import { LanguageContext } from '@/App';
 
 type HeaderProps = {
     data: Resume;
 };
 
 export const Header = ({ data }: HeaderProps) => {
+    const { language, toggleLanguage } = useContext(LanguageContext);
     return (
         <Box sx={{ py: 4, }}>
             <LanguageToggle />
 
-            <Typography variant="h3" fontWeight="bold" color="primary.textColor1" sx={{ fontFamily: 'Indie Flower', }}>
+            <Typography
+                variant="h3" fontWeight="bold" color="primary.textColor1"
+                sx={{
+                    mt: 2,
+                    fontFamily: 'Indie Flower',
+                    fontSize: language == 'jp' ? '2.4rem' : '2.7rem',
+                }}>
                 {data.greetings}
             </Typography>
-            <Typography variant="h6" sx={{ mt: 2, fontFamily: 'dynapuff', }}>
+            <Typography
+                variant="h6"
+                sx={{ mt: 2, fontFamily: 'dynapuff', fontSize: '1.1em' }}>
                 {data.role}
                 <LocationOn fontSize="small" sx={{ mx: 1 }} />
                 {data.location}
@@ -28,7 +39,7 @@ export const Header = ({ data }: HeaderProps) => {
                         color="primary.textColor3"
                         sx={{
                             lineHeight: 1.7,
-                            fontFamily: 'dynapuff', fontSize: '1.1em',
+                            fontFamily: 'dynapuff', fontSize: '1.05em',
                         }}
                     >
                         {lines}

@@ -28,7 +28,6 @@ export const Experience = ({ experiences }: ExperienceProps) => {
                 color="primary.textColor2"
                 sx={{
                     mb: 2, textAlign: 'left',
-                    // ...(isMobile && { display: 'none' })
                 }}
             >
                 Experience
@@ -95,7 +94,11 @@ export const Experience = ({ experiences }: ExperienceProps) => {
                             <TimelineConnector sx={{ bgcolor: 'primary.main', width: 3 }} />
                         </TimelineSeparator>
 
-                        <TimelineContent sx={{ py: '12px', ...(isMobile ? { px: 1 } : { px: 2 }) }}>
+                        <TimelineContent
+                            sx={{
+                                py: '12px',
+                                px: isMobile ? 1 : 2,
+                            }}>
                             <Paper
                                 elevation={2}
                                 sx={{
