@@ -11,14 +11,16 @@ export const LanguageToggle = () => {
         <Box
             sx={{
                 position: 'absolute',
-                top: 10,
-                right: 10,
+                top: 14,
+                right: 14,
                 display: 'flex',
                 border: 2,
                 borderColor: 'primary.main',
                 borderRadius: 2,
                 overflow: 'hidden',
                 bgcolor: 'background.paper',
+                transform: 'scale(0.8)',  // 20% larger
+                transformOrigin: 'top right',  // Scale from top-right corner (stays anchored)
             }}
         >
             {/* EN Button */}
