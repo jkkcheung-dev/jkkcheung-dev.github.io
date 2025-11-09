@@ -20,7 +20,7 @@ export const Header = ({ data }: HeaderProps) => {
                 sx={{
                     mt: 2,
                     fontFamily: 'Indie Flower',
-                    fontSize: language == 'jp' ? '2.4rem' : '2.7rem',
+                    fontSize: language == 'jp' ? '2.3rem' : '2.7rem',
                 }}>
                 {data.greetings}
             </Typography>

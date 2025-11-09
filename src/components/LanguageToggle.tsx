@@ -19,7 +19,7 @@ export const LanguageToggle = () => {
                 borderRadius: 2,
                 overflow: 'hidden',
                 bgcolor: 'background.paper',
-                transform: 'scale(0.8)',  // 20% larger
+                transform: 'scale(0.7)',  // 20% larger
                 transformOrigin: 'top right',  // Scale from top-right corner (stays anchored)
             }}
         >
