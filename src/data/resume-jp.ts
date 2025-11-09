@@ -17,7 +17,7 @@ export const resumeJP: Resume = {
     education: {
         school: "香港大学",
         degree: "工程部 コンピュータサイエンス学系",
-        location: "現在",
+        location: "香港",
         period: "2013 - 2017"
     },
     experiences: [

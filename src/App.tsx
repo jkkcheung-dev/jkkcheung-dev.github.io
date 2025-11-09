@@ -8,6 +8,7 @@ import { Experience } from '@/components/Experience';
 import { Skills } from '@/components/Skills';
 import { Languages } from '@/components/Languages';
 import { Certifications } from '@/components/Certifications';
+import { Education } from '@/components/Education';
 // import reactLogo from './assets/react.svg'
 // import viteLogo from '/vite.svg'
 // import './App.css'
@@ -33,6 +34,7 @@ function App() {
           <Skills skills={content.skills} />
           <Languages languages={content.languages} />
           <Experience experiences={content.experiences} />
+          <Education education={content.education} />
           <Certifications certifications={content.certifications} />
         </Container>
       </ThemeProvider>
