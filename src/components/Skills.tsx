@@ -40,7 +40,7 @@ export const Skills = ({ skills }: SkillsProps) => (
                                 bgcolor: 'background.exphighlight',
                                 // Customize the text color
                                 color: 'text.secondary',
-                                mb: 1,
+                                mb: 0.5,
                             }}
                         />
                     ))}
