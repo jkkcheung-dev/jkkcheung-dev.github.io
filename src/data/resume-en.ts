@@ -56,7 +56,7 @@ export const resumeEN: Resume = {
             period: "Sep 2017 - Jun 2019",
             location: "Hong Kong",
             highlights: [
-                "Designed and implemented RESTful API services using Java and Node.js to integrate with facial recognition algorithms, enabling secure enrollment of validated face images as templates with critical metadata. The system facilitated secure access and extracted facial characteristics for business analytics, enhancing operational insights and system security. The solution was processing over 10,000 face verifications daily",
+                "Designed and implemented RESTful API services using Java and Node.js to integrate with facial recognition algorithms, enabling secure enrollment of validated face images as templates with critical metadata. The system facilitated secure access and extracted facial characteristics for business analytics, enhancing operational efficiency and system security. The solution was processing over 10,000 face verifications daily",
                 "Developed RESTful API server, from API documentation to full implementation, to enable communication between shopping mall car parking apps and parking systems, improving operational efficiency and enhancing user experience for mall patrons",
                 "Led the development of a virtual reality (VR) fitness application from concept and hardware research to prototype, integrating a smart bicycle trainer with adjustable resistance and incline via API, alongside 360-degree panorama videos, using the Unity3D game engine. Delivered an innovative proof-of-concept for interactive fitness experiences."
             ]
