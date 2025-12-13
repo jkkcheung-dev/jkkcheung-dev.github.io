@@ -11,8 +11,8 @@ export const resumeJP: Resume = {
     linkedin: "https://www.linkedin.com/in/jack-cheung-75a621149",
     about: [
         "これまで主にJavaのSpringBootを使ったバックエンド開発や、React.jsでのフロントエンド開発に携わってきました",
-        "前職では、開発だけでなく、ELKとRedisを活用したログの管理システムや、PrometheusとGrafanaを使った自動監視システムを構築しました。これにより、障害対応にかかる時間を大幅に減らすことができました",
-        "現職でも、開発以外、AWSやCI/CD、Kubernetesなどを利用した開発・テスト環境の実装を担当しています。また、若手エンジニアのサポートも担当してきました"
+        "開発以外、AWSやCI/CD、Kubernetesなどを利用した開発・テスト環境の実装を担当しています。また、若手エンジニアのサポートも担当してきました",
+        "前職でも、開発だけでなく、ELKとRedisを活用したログの管理システムや、PrometheusとGrafanaを使った自動監視システムを構築しました。これにより、障害対応にかかる時間を大幅に減らすことができました",
     ],
     education: {
         school: "香港大学",
