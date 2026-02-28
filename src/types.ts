@@ -9,13 +9,13 @@ export interface Resume {
     linkedin: string;
     about: string[];
     education: Education;
-    experiences: Experience[];
+    experiences: ExperienceItem[];
     skills: Record<string, string[]>;
     languages: Record<string, string[]>;
     certifications?: Record<string, string>;
 }
 
-export interface Experience {
+export interface ExperienceItem {
     company: string;
     role: string;
     period: string;
@@ -30,14 +30,3 @@ export type Education = {
     location: string
     period: string
 }
-// export interface Skills {
-//     [category: string]: string[];
-// }
-
-// export interface Languages {
-//     [category: string]: string[];
-// }
-
-// export interface Certifications {
-//     [name: string]: string;
-// }

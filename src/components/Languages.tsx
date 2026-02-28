@@ -17,7 +17,7 @@ export const Languages = ({ languages }: LanguagesProps) => (
             Languages
         </Typography>
 
-        {Object.entries(languages).map(([level, langs], levelIndex) => (
+        {Object.entries(languages).map(([level, langs]) => (
             <Box key={level}>
                 <Typography
                     fontWeight="bold"

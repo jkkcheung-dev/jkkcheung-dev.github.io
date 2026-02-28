@@ -11,10 +11,10 @@ import {
     TimelineDot,
     TimelineOppositeContent,
 } from '@mui/lab';
-import type { Experience as WorkExperience } from '@/types';
+import type { ExperienceItem } from '@/types';
 
 type ExperienceProps = {
-    experiences: WorkExperience[];
+    experiences: ExperienceItem[];
 };
 
 export const Experience = ({ experiences }: ExperienceProps) => {
@@ -54,7 +54,6 @@ export const Experience = ({ experiences }: ExperienceProps) => {
                                     color="text.secondary"
                                     sx={{ display: 'flex', alignItems: 'center', gap: 0.5, fontSize: '1em' }}
                                 >
-                                    {/* <DateRange fontSize="small" /> */}
                                     {exp.period}
                                 </Typography>
 
@@ -146,17 +145,8 @@ export const Experience = ({ experiences }: ExperienceProps) => {
                                         color="text.secondary"
                                         sx={{ display: 'flex', alignItems: 'center', gap: 0.5, fontSize: '0.85rem' }}
                                     >
-                                        {/* <DateRange fontSize="small" /> */}
                                         {exp.period} | {exp.employmentType}
                                     </Typography>
-                                    {/* 
-                                    <Typography
-                                        variant="body2"
-                                        color="text.secondary"
-                                        sx={{ display: 'flex', alignItems: 'center', gap: 0.5, fontSize: '0.875rem' }}
-                                    >
-                                        {exp.employmentType} |
-                                    </Typography> */}
 
                                     <Typography
                                         variant="body2"
