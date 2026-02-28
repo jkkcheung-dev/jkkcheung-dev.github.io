@@ -2,7 +2,7 @@
 
 import { Box, Typography, Link, List, ListItem, ListItemText } from '@mui/material';
 import { OpenInNew } from '@mui/icons-material';
-import type { Resume } from '../types';
+import type { Resume } from '@/types';
 
 type CertificationsProps = {
     certifications?: Resume['certifications'];

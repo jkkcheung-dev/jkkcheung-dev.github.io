@@ -24,7 +24,7 @@ export interface ExperienceItem {
     highlights: string[];
 }
 
-export type Education = {
+export interface Education {
     school: string
     degree: string
     location: string

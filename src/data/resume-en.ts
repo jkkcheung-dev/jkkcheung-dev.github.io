@@ -71,7 +71,7 @@ export const resumeEN: Resume = {
     },
     languages: {
         "Native": ["Cantonese"],
-        "Buisiness": ["English", "Mandarin"],
+        "Business": ["English", "Mandarin"],
         "Conversational": ["Japanese N2"]
     },
     certifications: {

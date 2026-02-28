@@ -1,7 +1,7 @@
 // Languages.tsx
 
 import { Box, Typography, Chip, Stack } from '@mui/material';
-import type { Resume } from '../types';
+import type { Resume } from '@/types';
 
 type LanguagesProps = {
     languages: Resume['languages'];
