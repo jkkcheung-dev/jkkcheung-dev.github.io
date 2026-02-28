@@ -10,7 +10,10 @@ import { Languages } from '@/components/Languages';
 import { Certifications } from '@/components/Certifications';
 import { Education } from '@/components/Education';
 
-export const LanguageContext = createContext({
+export const LanguageContext = createContext<{
+  language: 'en' | 'jp';
+  toggleLanguage: () => void;
+}>({
   language: 'en',
   toggleLanguage: () => { }
 });
