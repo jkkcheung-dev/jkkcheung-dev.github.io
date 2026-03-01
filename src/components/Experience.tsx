@@ -1,6 +1,4 @@
-// Experience.tsx
-
-import { Box, Typography, Stack, useTheme, useMediaQuery, Paper } from '@mui/material';
+import { Box, Typography, Stack, useTheme, useMediaQuery } from '@mui/material';
 import { LocationOn } from '@mui/icons-material';
 import {
     Timeline,
@@ -12,6 +10,7 @@ import {
     TimelineOppositeContent,
 } from '@mui/lab';
 import type { ExperienceItem } from '@/types';
+import { ExperienceCard } from './ExperienceCard';
 
 type ExperienceProps = {
     experiences: ExperienceItem[];
@@ -93,92 +92,8 @@ export const Experience = ({ experiences }: ExperienceProps) => {
                             <TimelineConnector sx={{ bgcolor: 'primary.main', width: 3 }} />
                         </TimelineSeparator>
 
-                        <TimelineContent
-                            sx={{
-                                py: '12px',
-                                px: isMobile ? 1 : 2,
-                            }}>
-                            <Paper
-                                elevation={2}
-                                sx={{
-                                    p: 2,
-                                    backgroundColor: 'background.paper',
-                                    transition: 'all 0.3s ease-in-out',
-                                    '&:hover': {
-                                        elevation: 6,
-                                        transform: 'translateY(-5px)',
-                                        boxShadow: theme.shadows[15],
-                                    },
-                                    borderRadius: 5,
-                                }}
-                            >
-                                {/* Role Title */}
-                                <Typography
-                                    variant="h5"
-                                    component="h3"
-                                    fontWeight={600}
-                                    gutterBottom
-                                >
-                                    {exp.role}
-                                </Typography>
-
-                                {/* Company Name */}
-                                <Typography
-                                    variant="subtitle1"
-                                    color="primary.main"
-                                    fontWeight={500}
-                                    gutterBottom
-                                >
-                                    {exp.company}
-                                </Typography>
-
-                                {/* Always render but hide when above md screen size*/}
-                                <Stack
-                                    direction="row" spacing={1}
-                                    sx={{
-                                        ...(!isMobile && { display: 'none' })
-                                    }}
-                                >
-
-                                    <Typography
-                                        variant="body2"
-                                        color="text.secondary"
-                                        sx={{ display: 'flex', alignItems: 'center', gap: 0.5, fontSize: '0.85rem' }}
-                                    >
-                                        {exp.period} | {exp.employmentType}
-                                    </Typography>
-
-                                    <Typography
-                                        variant="body2"
-                                        color="text.secondary"
-                                        sx={{ display: 'flex', alignItems: 'center', gap: 0.5, fontSize: '0.75rem' }}
-                                    >
-                                        <LocationOn fontSize="small" />
-                                        {exp.location}
-                                    </Typography>
-                                </Stack>
-
-                                {/* Highlights/Responsibilities */}
-                                <Box sx={{ mt: 2, }}>
-                                    <Stack spacing={1}>
-                                        {exp.highlights.map((highlight, i) => (
-                                            <Box
-                                                key={i}
-                                                sx={{
-                                                    px: 1.5,
-                                                    py: 1,
-                                                    bgcolor: i % 2 === 0 ? 'background.exphighlight' : 'transparent',
-                                                    borderRadius: 3,
-                                                }}
-                                            >
-                                                <Typography variant="body2" sx={{ fontSize: '0.95rem', lineHeight: 1.4 }}>
-                                                    {highlight}
-                                                </Typography>
-                                            </Box>
-                                        ))}
-                                    </Stack>
-                                </Box>
-                            </Paper>
+                        <TimelineContent sx={{ py: '12px', px: isMobile ? 1 : 2 }}>
+                            <ExperienceCard exp={exp} isMobile={isMobile} />
                         </TimelineContent>
                     </TimelineItem>
                 ))}
