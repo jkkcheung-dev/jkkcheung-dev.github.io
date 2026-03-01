@@ -1,7 +1,7 @@
 import { Box, Typography, IconButton, Stack } from '@mui/material';
 import { GitHub, LinkedIn, Email, LocationOn } from '@mui/icons-material';
 import type { Resume } from '@/types';
-import { LanguageToggle } from './LanguageToggle';  // Add this import
+import { LanguageToggle } from './LanguageToggle';
 import { useContext } from 'react';
 import { LanguageContext } from '@/App';
 
@@ -20,7 +20,7 @@ export const Header = ({ data }: HeaderProps) => {
                 sx={{
                     mt: 2,
                     fontFamily: 'Indie Flower',
-                    fontSize: language == 'jp' ? '2.3rem' : '2.7rem',
+                    fontSize: language === 'jp' ? '2.3rem' : '2.7rem',
                 }}>
                 {data.greetings}
             </Typography>

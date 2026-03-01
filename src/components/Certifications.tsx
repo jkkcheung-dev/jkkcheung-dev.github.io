@@ -1,5 +1,3 @@
-// Certifications.tsx (Compact Version)
-
 import { Box, Typography, Link, List, ListItem, ListItemText } from '@mui/material';
 import { OpenInNew } from '@mui/icons-material';
 import type { Resume } from '@/types';
@@ -26,14 +24,14 @@ export const Certifications = ({ certifications }: CertificationsProps) => {
 
 
             <List disablePadding>
-                {Object.entries(certifications).map(([name, url], idx, arr) => (
+                {Object.entries(certifications).map(([name, url]) => (
                     <ListItem
                         key={name}
                         disablePadding
                         sx={{
                             alignItems: 'flex-start',
-                            width: 'fit-content',  // Only as wide as content
-                            borderBottom: idx < arr.length - 1 ? 1 : 0,
+                            width: 'fit-content',
+                            '&:not(:last-child)': { borderBottom: 1 },
                             borderColor: 'primary.textColor2',
                         }}
                     >
