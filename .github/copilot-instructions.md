@@ -18,46 +18,8 @@ This is a **personal resume / portfolio website** for Jack Cheung, a senior soft
 | Timeline Component | `@mui/lab` (MUI Lab) |
 | Fonts | Google Fonts — DynaPuff, Indie Flower, Noto Sans JP, Roboto |
 | Linting | ESLint 9 with react-hooks and react-refresh plugins |
+| Testing | Vitest 4 + React Testing Library + jsdom + `@vitest/coverage-v8` |
 | Deployment | GitHub Pages via GitHub Actions |
-
----
-
-## Repository Structure
-
-```
-jackCheungResume/
-├── index.html                  # HTML entry point; loads Google Fonts and mounts #root
-├── vite.config.ts              # Vite config: path alias @→src, code splitting, esbuild minify
-├── tsconfig.json / tsconfig.app.json / tsconfig.node.json
-├── eslint.config.js
-├── package.json
-├── public/
-│   ├── site.webmanifest        # PWA manifest
-│   ├── favicon-16x16.png
-│   └── favicon-32x32.png
-├── .github/
-│   └── workflows/
-│       └── release.yaml        # CI/CD: build → deploy to GitHub Pages on push to master
-└── src/
-    ├── main.tsx                # React entry point — mounts <App /> into #root
-    ├── App.tsx                 # Root component: LanguageContext provider, layout shell
-    ├── types.ts                # TypeScript interfaces: Resume, ExperienceItem, Education
-    ├── theme.ts                # Custom MUI theme (palette, typography)
-    ├── assets/                 # Static images / media
-    ├── components/
-    │   ├── Header.tsx          # Profile banner: greeting, role, about bullets, social links
-    │   ├── LanguageToggle.tsx  # EN / JP toggle button (top-right, fixed position)
-    │   ├── ChipGroup.tsx       # Shared component: section heading + grouped Chip rows
-    │   ├── Skills.tsx          # Thin wrapper — renders <ChipGroup> with skills data
-    │   ├── Languages.tsx       # Thin wrapper — renders <ChipGroup> with languages data
-    │   ├── Experience.tsx      # Work history — MUI Timeline scaffold; delegates card body to ExperienceCard
-    │   ├── ExperienceCard.tsx  # Paper card: role, company, mobile meta row, highlights list
-    │   ├── Education.tsx       # Single education entry (degree, school, period)
-    │   └── Certifications.tsx  # Certification links, each verified via Credly
-    └── data/
-        ├── resume-en.ts        # Full resume content in English
-        └── resume-jp.ts        # Full resume content in Japanese
-```
 
 ---
 
@@ -111,50 +73,6 @@ Typography uses **DynaPuff** for headings and **Noto Sans JP** as the CJK fallba
 
 ---
 
-## Resume Content Summary
-
-### Personal Info
-- **Name**: Jack Cheung (Cheung Ka Kit / チョン カキット)
-- **Role**: Software Engineer
-- **Location**: Hong Kong
-- **Contact**: jackcheungkk@gmail.com · GitHub · LinkedIn
-
-### Work Experience (3 roles)
-
-| Period | Company | Role | Type |
-|---|---|---|---|
-| May 2021 – Present | Government Public Dental Service | Analyst Programmer | Secondment Contract |
-| Jun 2019 – Oct 2020 | Orient Overseas Container Line Limited | Assistant Technical Analyst | Full-time |
-| Sep 2017 – Jun 2019 | IWT Solution | Programmer | Full-time |
-
-Key highlights across all roles: React + Spring Boot full-stack development, AWS (EC2, EKS), Kubernetes, CI/CD with GitHub Actions, ELK + Redis log centralisation (60% faster incident resolution), Prometheus + Grafana monitoring, microservices migration, facial recognition API (10k+ verifications/day), Unity3D VR fitness PoC.
-
-### Skills
-
-| Category | Items |
-|---|---|
-| Programming Languages | JavaScript, TypeScript, Java, Python, Go, Shell, SQL |
-| Frameworks | React, Node.js, Spring Boot |
-| Storages | PostgreSQL, MySQL, Oracle SQL, Kafka, Redis |
-| Cloud & DevOps | AWS, Docker, Kubernetes, GitHub Actions, Terraform, Ansible |
-| Other | Elasticsearch+Logstash+Kibana, Prometheus, Grafana |
-
-### Spoken Languages
-- **Native**: Cantonese
-- **Business**: English, Mandarin
-- **Conversational**: Japanese (JLPT N2)
-
-### Certifications (all verified on Credly)
-- Certified Kubernetes Administrator (CKA)
-- AWS Certified Solutions Architect – Professional
-- AWS Certified Developer – Associate
-- AWS Certified SysOps Administrator – Associate
-
-### Education
-- **The University of Hong Kong** — Bachelor of Engineering in Computer Science (2013–2017)
-
----
-
 ## CI/CD Pipeline (`.github/workflows/release.yaml`)
 
 Triggered on every push to the `master` branch (or manually via `workflow_dispatch`):
@@ -173,6 +91,7 @@ Only one deployment runs at a time (`concurrency: group: "pages"`).
 - **Minification**: esbuild (fast, no Terser dependency)
 - **Source maps**: disabled in production
 - **Output**: `dist/`
+- **Test environment**: `jsdom` — declared in the `test` block of `vite.config.ts`; Vitest reads this same config so no separate `vitest.config.ts` is needed
 
 ---
 
@@ -183,3 +102,5 @@ Only one deployment runs at a time (`concurrency: group: "pages"`).
 3. **Responsive Experience timeline** — `useMediaQuery` detects mobile (`< md` breakpoint); below that, the opposite-content panel (date/employment type/location) is hidden and the same info is rendered inline inside the card instead.
 4. **Custom MUI theme tokens** — rather than scattering hardcoded colour strings, all colours are registered as named tokens in the theme and consumed via `color="primary.textColor2"` etc., making global colour changes a one-line edit in `theme.ts`.
 5. **Google Fonts preconnect** — `index.html` uses `<link rel="preconnect">` for both `fonts.googleapis.com` and `fonts.gstatic.com` to reduce font loading latency, particularly important for the Japanese Noto Sans JP font.
+6. **Single Vite config for build and test** — the `test` block lives inside `vite.config.ts` rather than a separate `vitest.config.ts`. This keeps the path alias (`@`) and plugin list in one place, so tests resolve imports identically to the production build.
+7. **`renderWithProviders` wrapper** — every component test uses this helper instead of bare `render()`. It ensures `ThemeProvider` and `LanguageContext.Provider` are always present, preventing silent colour-token fallbacks and uncaught context errors. Supplying a mock `toggleLanguage: vi.fn()` as the default also makes spy assertions ergonomic in any test that needs them.
