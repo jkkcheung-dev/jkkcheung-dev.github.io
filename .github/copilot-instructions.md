@@ -41,16 +41,17 @@ jackCheungResume/
 └── src/
     ├── main.tsx                # React entry point — mounts <App /> into #root
     ├── App.tsx                 # Root component: LanguageContext provider, layout shell
-    ├── types.ts                # TypeScript interfaces: Resume, Experience, Education
+    ├── types.ts                # TypeScript interfaces: Resume, ExperienceItem, Education
     ├── theme.ts                # Custom MUI theme (palette, typography)
-    ├── index.css / App.css     # Global and app-level styles
     ├── assets/                 # Static images / media
     ├── components/
     │   ├── Header.tsx          # Profile banner: greeting, role, about bullets, social links
     │   ├── LanguageToggle.tsx  # EN / JP toggle button (top-right, fixed position)
-    │   ├── Skills.tsx          # Skill chips grouped by category
-    │   ├── Languages.tsx       # Spoken language chips grouped by proficiency level
-    │   ├── Experience.tsx      # Work history — MUI Timeline with hover-lift cards
+    │   ├── ChipGroup.tsx       # Shared component: section heading + grouped Chip rows
+    │   ├── Skills.tsx          # Thin wrapper — renders <ChipGroup> with skills data
+    │   ├── Languages.tsx       # Thin wrapper — renders <ChipGroup> with languages data
+    │   ├── Experience.tsx      # Work history — MUI Timeline scaffold; delegates card body to ExperienceCard
+    │   ├── ExperienceCard.tsx  # Paper card: role, company, mobile meta row, highlights list
     │   ├── Education.tsx       # Single education entry (degree, school, period)
     │   └── Certifications.tsx  # Certification links, each verified via Credly
     └── data/
@@ -79,7 +80,7 @@ Resume
   ├── email / github / linkedin
   ├── about: string[]
   ├── education: Education   { school, degree, location, period }
-  ├── experiences: Experience[]   { company, role, employmentType, period, location, highlights[] }
+  ├── experiences: ExperienceItem[]   { company, role, employmentType, period, location, highlights[] }
   ├── skills: Record<string, string[]>        (category → list of items)
   ├── languages: Record<string, string[]>     (proficiency level → list of languages)
   └── certifications?: Record<string, string> (name → Credly URL)
@@ -178,7 +179,7 @@ Only one deployment runs at a time (`concurrency: group: "pages"`).
 ## Key Design Decisions
 
 1. **Data-driven content** — all text lives in `resume-en.ts` and `resume-jp.ts`. Adding a new language only requires creating a new data file and a new toggle option; no component changes needed.
-2. **TypeScript-first** — the `Resume`, `Experience`, and `Education` interfaces enforce consistency between both language data files at compile time. The `certifications` field is optional (`?:`), allowing it to be omitted without breaking the layout.
+2. **TypeScript-first** — the `Resume`, `ExperienceItem`, and `Education` interfaces enforce consistency between both language data files at compile time. The `certifications` field is optional (`?:`), allowing it to be omitted without breaking the layout.
 3. **Responsive Experience timeline** — `useMediaQuery` detects mobile (`< md` breakpoint); below that, the opposite-content panel (date/employment type/location) is hidden and the same info is rendered inline inside the card instead.
 4. **Custom MUI theme tokens** — rather than scattering hardcoded colour strings, all colours are registered as named tokens in the theme and consumed via `color="primary.textColor2"` etc., making global colour changes a one-line edit in `theme.ts`.
 5. **Google Fonts preconnect** — `index.html` uses `<link rel="preconnect">` for both `fonts.googleapis.com` and `fonts.gstatic.com` to reduce font loading latency, particularly important for the Japanese Noto Sans JP font.
