@@ -1,6 +1,6 @@
 ## Testing
 ---
-applyTo: "**/__tests__/**/*.{ts,tsx}"
+applyTo: "src/__tests__/**"
 description: TypeScript Testing instructions.
 ---
 

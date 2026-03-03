@@ -22,6 +22,30 @@ This is a **personal resume / portfolio website** for Jack Cheung, a senior soft
 | Deployment | GitHub Pages via GitHub Actions |
 
 ---
+## Repository Structure
+
+```
+jackCheungResume/
+├── index.html                  # HTML entry point; loads Google Fonts and mounts #root
+├── vite.config.ts              # Vite config: path alias @→src, code splitting, esbuild minify
+├── tsconfig.json / tsconfig.app.json / tsconfig.node.json
+├── eslint.config.js
+├── package.json
+├── public/
+│   ├── site.webmanifest        # PWA manifest
+│   ├── favicon-16x16.png
+│   └── favicon-32x32.png
+├── .github/
+└── src/
+    ├── main.tsx                # React entry point — mounts <App /> into #root
+    ├── App.tsx                 # Root component: LanguageContext provider, layout shell
+    ├── types.ts                # TypeScript interfaces: Resume, ExperienceItem, Education
+    ├── theme.ts                # Custom MUI theme (palette, typography)
+    ├── assets/                 # Static images / media
+    ├── components/             # UI components
+    └── data/
+```
+---
 
 ## How the Application Works
 
