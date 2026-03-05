@@ -32,10 +32,10 @@ jackCheungResume/
 ├── eslint.config.js
 ├── package.json
 ├── public/
-│   ├── site.webmanifest        # PWA manifest
-│   ├── favicon-16x16.png
-│   └── favicon-32x32.png
 ├── .github/
+│   └── workflows/
+│   └── instructions/
+│   └── copilot-instructions.md
 └── src/
     ├── main.tsx                # React entry point — mounts <App /> into #root
     ├── App.tsx                 # Root component: LanguageContext provider, layout shell
@@ -97,17 +97,6 @@ Typography uses **DynaPuff** for headings and **Noto Sans JP** as the CJK fallba
 
 ---
 
-## CI/CD Pipeline (`.github/workflows/release.yaml`)
-
-Triggered on every push to the `master` branch (or manually via `workflow_dispatch`):
-
-1. **Build job**: checkout → Node 22 setup → `npm ci` → `npm run build` → upload `./dist` as a Pages artifact
-2. **Deploy job**: deploy the uploaded artifact to GitHub Pages
-
-Only one deployment runs at a time (`concurrency: group: "pages"`).
-
----
-
 ## Vite Build Configuration
 
 - **Path alias**: `@` maps to `./src` — used throughout the codebase for clean imports (`@/components/...`, `@/data/...`)
@@ -128,3 +117,9 @@ Only one deployment runs at a time (`concurrency: group: "pages"`).
 5. **Google Fonts preconnect** — `index.html` uses `<link rel="preconnect">` for both `fonts.googleapis.com` and `fonts.gstatic.com` to reduce font loading latency, particularly important for the Japanese Noto Sans JP font.
 6. **Single Vite config for build and test** — the `test` block lives inside `vite.config.ts` rather than a separate `vitest.config.ts`. This keeps the path alias (`@`) and plugin list in one place, so tests resolve imports identically to the production build.
 7. **`renderWithProviders` wrapper** — every component test uses this helper instead of bare `render()`. It ensures `ThemeProvider` and `LanguageContext.Provider` are always present, preventing silent colour-token fallbacks and uncaught context errors. Supplying a mock `toggleLanguage: vi.fn()` as the default also makes spy assertions ergonomic in any test that needs them.
+
+---
+## Remark For Each Code Update Task To Ensure Consistency With Project Conventions
+
+1. Invoke the plan subagent to generate a detailed implementation plan for the requested code update, ensuring it aligns with the project's architecture, coding style and design principles. Then output your plan in the chat for my review before you proceed.
+2. Once the plan is approved by me, invoke another subagent to implement the code update according to the plan, adhering to the project's conventions and best practices.
