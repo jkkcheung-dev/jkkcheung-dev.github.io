@@ -22,7 +22,7 @@ export const Header = ({ data }: HeaderProps) => {
                     display: 'flex',
                     alignItems: 'center',
                     gap: 1,
-                    transform: 'scale(0.7)',
+                    transform: 'scale(0.8)',
                     transformOrigin: 'top right',
                 }}
             >
