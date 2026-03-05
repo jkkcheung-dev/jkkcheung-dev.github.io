@@ -97,17 +97,6 @@ Typography uses **DynaPuff** for headings and **Noto Sans JP** as the CJK fallba
 
 ---
 
-## CI/CD Pipeline (`.github/workflows/release.yaml`)
-
-Triggered on every push to the `master` branch (or manually via `workflow_dispatch`):
-
-1. **Build job**: checkout → Node 22 setup → `npm ci` → `npm run build` → upload `./dist` as a Pages artifact
-2. **Deploy job**: deploy the uploaded artifact to GitHub Pages
-
-Only one deployment runs at a time (`concurrency: group: "pages"`).
-
----
-
 ## Vite Build Configuration
 
 - **Path alias**: `@` maps to `./src` — used throughout the codebase for clean imports (`@/components/...`, `@/data/...`)
