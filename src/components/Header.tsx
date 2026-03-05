@@ -2,6 +2,7 @@ import { Box, Typography, IconButton, Stack } from '@mui/material';
 import { GitHub, LinkedIn, Email, LocationOn } from '@mui/icons-material';
 import type { Resume } from '@/types';
 import { LanguageToggle } from './LanguageToggle';
+import { DownloadButton } from './DownloadButton';
 import { useContext } from 'react';
 import { LanguageContext } from '@/App';
 
@@ -13,7 +14,21 @@ export const Header = ({ data }: HeaderProps) => {
     const { language } = useContext(LanguageContext);
     return (
         <Box sx={{ py: 4, }}>
-            <LanguageToggle />
+            <Box
+                sx={{
+                    position: 'absolute',
+                    top: 14,
+                    right: 14,
+                    display: 'flex',
+                    alignItems: 'center',
+                    gap: 1,
+                    transform: 'scale(0.7)',
+                    transformOrigin: 'top right',
+                }}
+            >
+                <DownloadButton />
+                <LanguageToggle />
+            </Box>
 
             <Typography
                 variant="h3" fontWeight="bold" color="primary.textColor1"
