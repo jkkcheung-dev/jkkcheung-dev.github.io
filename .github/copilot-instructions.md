@@ -123,3 +123,5 @@ Typography uses **DynaPuff** for headings and **Noto Sans JP** as the CJK fallba
 
 1. Invoke the plan subagent to generate a detailed implementation plan for the requested code update, ensuring it aligns with the project's architecture, coding style and design principles. Then output your plan in the chat for my review before you proceed.
 2. Once the plan is approved by me, invoke another subagent to implement the code update according to the plan, adhering to the project's conventions and best practices.
+3. After the code update is implemented, if project's test exist, run them to verify that all tests pass successfully.
+4. After all the work is done, no need to output summary of what you have done.
