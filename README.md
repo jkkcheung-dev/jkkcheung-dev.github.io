@@ -19,5 +19,3 @@ This is a **personal resume / portfolio website** for Jack Cheung, a senior soft
 | Deployment | GitHub Pages via GitHub Actions |
 
 ---
-
-To get a detailed overview of this project, please goes to .github/copilot-instruction.md
