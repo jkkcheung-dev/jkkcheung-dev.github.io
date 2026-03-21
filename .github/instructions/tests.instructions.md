@@ -2,6 +2,7 @@
 ---
 applyTo: "src/__tests__/**"
 description: TypeScript Testing instructions.
+
 ---
 
 ### Framework & Tools

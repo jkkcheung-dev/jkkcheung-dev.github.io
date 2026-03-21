@@ -1,10 +1,14 @@
 # Project Context — Jack Cheung Resume Website
 
-## What Is This Project?
+## Project Snapshot
 
-This is a **personal resume / portfolio website** for Jack Cheung, a senior software engineer based in Hong Kong. The site is a single-page application (SPA) that presents his professional profile in a clean, interactive format. The most notable feature is **bilingual support**: visitors can switch between an English version and a Japanese version of the entire resume at any time via a toggle button fixed to the top-right corner. All content—headings, bullet points, skill category names, and section labels—updates instantly to the selected language without any page reload.
+This repository is a single-page resume and portfolio site for Jack Cheung built with React, TypeScript, Vite, and MUI.
 
----
+Project-specific constraints:
+- The primary resume content is bilingual and switches between English and Japanese through `LanguageContext` in `src/App.tsx`.
+- Resume copy should stay data-driven from `src/data/resume-en.ts` and `src/data/resume-jp.ts`.
+- The header includes both a language toggle and a download dropdown.
+- The download dropdown is intentionally language-independent; its labels and URLs stay fixed regardless of the active language.
 
 ## Tech Stack
 
@@ -12,116 +16,57 @@ This is a **personal resume / portfolio website** for Jack Cheung, a senior soft
 |---|---|
 | UI Framework | React 19 |
 | Language | TypeScript |
-| Build Tool | Vite 6 |
+| Build Tool | Vite 7 |
 | Component Library | Material UI (MUI) v7 + Emotion |
 | Icons | `@mui/icons-material` |
-| Timeline Component | `@mui/lab` (MUI Lab) |
-| Fonts | Google Fonts — DynaPuff, Indie Flower, Noto Sans JP, Roboto |
-| Linting | ESLint 9 with react-hooks and react-refresh plugins |
-| Testing | Vitest 4 + React Testing Library + jsdom + `@vitest/coverage-v8` |
+| Timeline Component | `@mui/lab` |
+| Testing | Vitest 4 + React Testing Library + jsdom |
 | Deployment | GitHub Pages via GitHub Actions |
 
----
-## Repository Structure
+## Working Commands
 
-```
-jackCheungResume/
-├── index.html                  # HTML entry point; loads Google Fonts and mounts #root
-├── vite.config.ts              # Vite config: path alias @→src, code splitting, esbuild minify
-├── tsconfig.json / tsconfig.app.json / tsconfig.node.json
-├── eslint.config.js
-├── package.json
-├── public/
-├── .github/
-│   └── workflows/
-│   └── instructions/
-│   └── copilot-instructions.md
-└── src/
-    ├── main.tsx                # React entry point — mounts <App /> into #root
-    ├── App.tsx                 # Root component: LanguageContext provider, layout shell
-    ├── types.ts                # TypeScript interfaces: Resume, ExperienceItem, Education
-    ├── theme.ts                # Custom MUI theme (palette, typography)
-    ├── assets/                 # Static images / media
-    ├── components/             # UI components
-    └── data/
-```
----
+- `npm run dev` — start the Vite dev server
+- `npm run build` — type-check and build for production
+- `npm run lint` — run ESLint
+- `npm test` — run Vitest in watch mode
+- `npm run test:run` — run the test suite once
+- `npm run test:coverage` — run tests with coverage output
 
-## How the Application Works
+## Architecture Rules
 
-### Language Switching (`App.tsx`)
-`App` holds a `language` state (`'en' | 'jp'`) and exposes it through `LanguageContext` (React Context API). The active language determines which data object is passed down as props to all section components:
+- Keep localized resume content in the data files, not in presentational components.
+- Exception: fixed-label UI that is intentionally language-independent may use hardcoded text.
+- Keep `src/types.ts` as the source of truth for the resume data shape.
+- Preserve the current section order in `src/App.tsx` unless the task explicitly changes page structure.
+- Use the existing `@` path alias for source imports.
+- Prefer theme tokens from `src/theme.ts` over hardcoded colors.
+- For component tests, use `renderWithProviders` from `src/__tests__/test-utils.tsx`.
 
-```
-language === 'en'  →  resumeEN  (from resume-en.ts)
-language === 'jp'  →  resumeJP  (from resume-jp.ts)
-```
+## Key Project Files
 
-The `LanguageToggle` component reads and updates this context. Because all text content is data-driven, **no component contains hardcoded strings**—the language change propagates automatically.
+- `src/App.tsx` — owns language state and chooses between `resumeEN` and `resumeJP`
+- `src/components/` — presentational UI components
+- `src/data/` — bilingual resume content
+- `src/theme.ts` — custom MUI palette and typography tokens
+- `.github/instructions/tests.instructions.md` — detailed testing conventions
 
-### Data Model (`types.ts`)
-```
-Resume
-  ├── greetings / cantonName / cantonDesc / role / location
-  ├── email / github / linkedin
-  ├── about: string[]
-  ├── education: Education   { school, degree, location, period }
-  ├── experiences: ExperienceItem[]   { company, role, employmentType, period, location, highlights[] }
-  ├── skills: Record<string, string[]>        (category → list of items)
-  ├── languages: Record<string, string[]>     (proficiency level → list of languages)
-  └── certifications?: Record<string, string> (name → Credly URL)
-```
+## Boundaries
 
-### Layout Order (rendered in `App.tsx`)
-1. `<Header>` — name, role, location, about summary, GitHub / LinkedIn / email icon buttons
-2. `<Skills>` — tech skill chips grouped by category
-3. `<Languages>` — spoken language chips grouped by proficiency
-4. `<Experience>` — vertical MUI Timeline; cards lift on hover; responsive (mobile hides the opposite-side date column)
-5. `<Education>` — degree and school
-6. `<Certifications>` — clickable links with external-link icon; hidden if empty
+Always:
+- Preserve the bilingual architecture and the data-driven content model.
+- Keep changes consistent with the existing MUI, TypeScript, and testing patterns.
+- Run relevant tests after code changes when a related test suite exists.
 
-### Theme (`theme.ts`)
-The MUI theme uses a warm, earthy colour palette via module augmentation to add custom tokens:
+Ask first:
+- Changing the `Resume` data shape in `src/types.ts`
+- Adding new dependencies
+- Major visual redesigns or typography changes
+- Build, deployment, or GitHub Actions changes
 
-| Token | Colour (hex) | Usage |
-|---|---|---|
-| `primary.main` | `#b48334` | Timeline dots, borders, button highlight |
-| `primary.textColor1` | `#69607d` | Greeting heading, skill category labels |
-| `primary.textColor2` | `#487c63` | Section headings (h4) |
-| `primary.textColor3` | `#d4cec1` | About paragraph text |
-| `background.default` | `#729dcb` | Page background (mid-blue) |
-| `background.paper` | `#c6c9c6` | Card surfaces |
-| `background.exphighlight` | `#bdae93` | Alternating highlight rows inside experience cards, skill chips |
+Never:
+- Hardcode bilingual resume content into presentational components unless the UI is intentionally language-independent
+- Rework unrelated files as part of a focused task
 
-Typography uses **DynaPuff** for headings and **Noto Sans JP** as the CJK fallback, ensuring Japanese text renders correctly without layout shifts.
+## Related Customization
 
----
-
-## Vite Build Configuration
-
-- **Path alias**: `@` maps to `./src` — used throughout the codebase for clean imports (`@/components/...`, `@/data/...`)
-- **Code splitting**: `vendor` chunk (React, react-dom) and `mui` chunk (MUI + Emotion) are separated from application code for better browser caching
-- **Minification**: esbuild (fast, no Terser dependency)
-- **Source maps**: disabled in production
-- **Output**: `dist/`
-- **Test environment**: `jsdom` — declared in the `test` block of `vite.config.ts`; Vitest reads this same config so no separate `vitest.config.ts` is needed
-
----
-
-## Key Design Decisions
-
-1. **Data-driven content** — all text lives in `resume-en.ts` and `resume-jp.ts`. Adding a new language only requires creating a new data file and a new toggle option; no component changes needed.
-2. **TypeScript-first** — the `Resume`, `ExperienceItem`, and `Education` interfaces enforce consistency between both language data files at compile time. The `certifications` field is optional (`?:`), allowing it to be omitted without breaking the layout.
-3. **Responsive Experience timeline** — `useMediaQuery` detects mobile (`< md` breakpoint); below that, the opposite-content panel (date/employment type/location) is hidden and the same info is rendered inline inside the card instead.
-4. **Custom MUI theme tokens** — rather than scattering hardcoded colour strings, all colours are registered as named tokens in the theme and consumed via `color="primary.textColor2"` etc., making global colour changes a one-line edit in `theme.ts`.
-5. **Google Fonts preconnect** — `index.html` uses `<link rel="preconnect">` for both `fonts.googleapis.com` and `fonts.gstatic.com` to reduce font loading latency, particularly important for the Japanese Noto Sans JP font.
-6. **Single Vite config for build and test** — the `test` block lives inside `vite.config.ts` rather than a separate `vitest.config.ts`. This keeps the path alias (`@`) and plugin list in one place, so tests resolve imports identically to the production build.
-7. **`renderWithProviders` wrapper** — every component test uses this helper instead of bare `render()`. It ensures `ThemeProvider` and `LanguageContext.Provider` are always present, preventing silent colour-token fallbacks and uncaught context errors. Supplying a mock `toggleLanguage: vi.fn()` as the default also makes spy assertions ergonomic in any test that needs them.
-
----
-## Remark For Each Code Update Task To Ensure Consistency With Project Conventions
-
-1. Invoke the plan subagent to generate a detailed implementation plan for the requested code update, ensuring it aligns with the project's architecture, coding style and design principles. Then output your plan in the chat for my review before you proceed.
-2. Once the plan is approved by me, invoke another subagent to implement the code update according to the plan, adhering to the project's conventions and best practices.
-3. After the code update is implemented, if project's test exist, run them to verify that all tests pass successfully.
-4. After all the work is done, no need to output summary of what you have done.
+For a reusable plan-first workflow for non-trivial code changes, see `.github/skills/non-trivial-code-change/SKILL.md`.
